@@ -1,9 +1,18 @@
 Rails.application.routes.draw do
-  
+
 
   scope module: 'public' do
     root to: 'homes#top'
     get 'about' => 'homes#about', as: 'about'
+
+    #customers [show.edit.update.unsubscribe.withdraw]
+    get 'customers/my_page' => 'customers#show', as: 'my_page'
+    get 'customers/infomation/edit' => 'customers#edit', as: 'my_page_edit'
+    patch 'customers/infomation' => 'customers#update'
+    get 'customers/unsubscribe' => 'customers#unsubscribe', as: 'unsubscribe'
+    patch 'customers/withdraw' => 'customers#withdraw'
+
+
   end
 
 
