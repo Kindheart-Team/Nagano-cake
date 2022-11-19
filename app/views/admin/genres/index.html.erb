@@ -3,32 +3,29 @@
 
 <body>
   
-  <h1></h1>
+  <h1>ジャンル一覧・追加</h1>
 
-<%= form_with model: @genrenew do |f| %>
-  <label for="inputTitle">Title</label><br>
+<div>
+  <%= flash[:notice] %>
+</div>
+
+<% if @user.errors.any? %>
+  <%= @user.errors.count %>件のエラーが発生しました
+  <% end %>
+
+
+<%= form_with model: @genre do |f| %>
+<p></p>
+  <label for="inputTitle"></label><br>
   <%= f.text_field :title, autofocus: true, id:"inputTitle", placeholder:"Title"%><br>
-
-  <label for="inputOpinion">Opinion</label><br>
-  <%= f.text_area :body, autofocus: true, id:"inputOpinion", placeholder:"Opinion"%><br>
 
   <%= f.submit 'Create Book',class: "btn btn-success" %>
 <% end %>
 </div>
-
   
   
   
-
-  <div class = "row">
-    <%= link_to edit_user_path(@user.id), class: "btn btn-outline-secondary btn-block edit_user_48773" do %>
-    <i class="fas fa-user-cog"></i>
-    <% end %>
-</div>
-
-
-
-<table class="table">
+  <table class="table">
   <thead>
     <tr>
       <th></th>
@@ -37,47 +34,29 @@
     </thead>
 
 <tbody>
-  <tr>
-      <td><%= link_to user_path(@user.id) do %>
-    <%= image_tag @book.user.get_profile_image(100, 100) %>
-  <% end %>
-
-  <%= link_to user_path(@user.id) do %>
-  <%= @user.name %>
+  
+<% @genres.each do |genre| %>
+    <tr>
+      <td><%= link_to genre_path(admin.genre) do %>
   <% end %>
       </td>
 
       <td>
-      <%= link_to book_path(@book.id) do %>
-      <%= @book.title %>
+      <%= link_to genre_path(genre.id) do %>
+      <%= genre.title %>
       <% end %>
       </td>
 
-
-
-      <td><%= @book.body %></td>
-
-        <td>
-          <% if  @book.user == current_user %>
-       <%= link_to "Edit", edit_book_path(@book.id), class: "btn btn-sm btn-success" %>
-
-       </td>
-        <td>
-      <%= link_to "Destroy", book_path(@book.id), method: :delete, "data-confirm" => "本当に削除しますか?", class: "btn btn-sm btn-danger" %>
-        </td>
-        <% end %>
-
-
-
-
-      <td></td>
+      <td><%= genre.body %></td>
+      
+      <td>
+          
+       <%= link_to "編集する", edit_genre_path(@genre.id), class: "btn btn-sm btn-success" %>
+      
     </tr>
-  
-  
-
-
-
-  </tbody>
+<% end %>
+      
+    </tbody>
 
 </table>
 </div>

@@ -1,6 +1,11 @@
 Rails.application.routes.draw do
 
   namespace :admin do
+    get '/index'
+    get 'books/show'
+    get 'books/edit'
+    
+    
     root to: 'homes#top'
   end
 
