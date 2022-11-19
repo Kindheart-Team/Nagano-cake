@@ -2,11 +2,30 @@
 <p>Find me in app/views/admin/genres/index.html.erb</p>
 
 <body>
+  
+  <h1>ジャンル一覧・追加</h1>
+
+<div>
+  <%= flash[:notice] %>
+</div>
+
+<% if @user.errors.any? %>
+  <%= @user.errors.count %>件のエラーが発生しました
+  <% end %>
 
 
-<h1>ジャンル一覧・追加</h1>
+<%= form_with model: @genre do |f| %>
+<p></p>
+  <label for="inputTitle"></label><br>
+  <%= f.text_field :title, autofocus: true, id:"inputTitle", placeholder:"Title"%><br>
 
-<table class="table">
+  <%= f.submit 'Create Book',class: "btn btn-success" %>
+<% end %>
+</div>
+  
+  
+  
+  <table class="table">
   <thead>
     <tr>
       <th></th>
@@ -16,11 +35,28 @@
 
 <tbody>
   
-  
+<% @genres.each do |genre| %>
+    <tr>
+      <td><%= link_to genre_path(admin.genre) do %>
+  <% end %>
+      </td>
 
+      <td>
+      <%= link_to genre_path(genre.id) do %>
+      <%= genre.title %>
+      <% end %>
+      </td>
 
-
-  </tbody>
+      <td><%= genre.body %></td>
+      
+      <td>
+          
+       <%= link_to "編集する", edit_genre_path(@genre.id), class: "btn btn-sm btn-success" %>
+      
+    </tr>
+<% end %>
+      
+    </tbody>
 
 </table>
 </div>
