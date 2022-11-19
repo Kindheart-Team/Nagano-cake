@@ -2,7 +2,7 @@ Rails.application.routes.draw do
 
   namespace :admin do
     root to: 'homes#top'
-    resources :genres, only: [:new, :reate, :index, :edit, :update]
+    resources :genres, only: [:new, :create, :index, :edit, :update]
   end
 
 
@@ -16,6 +16,8 @@ Rails.application.routes.draw do
     patch 'customers/infomation' => 'customers#update'
     get 'customers/unsubscribe' => 'customers#unsubscribe', as: 'unsubscribe'
     patch 'customers/withdraw' => 'customers#withdraw'
+
+    resources :addresses, only: [:index, :edit, :create, :update, :destroy]
 
   end
 
