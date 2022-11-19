@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   namespace :admin do
     root to: 'homes#top'
   end
+
   scope module: 'public' do
     root to: 'homes#top'
     get 'about' => 'homes#about', as: 'about'
@@ -14,8 +15,8 @@ Rails.application.routes.draw do
     get 'customers/unsubscribe' => 'customers#unsubscribe', as: 'unsubscribe'
     patch 'customers/withdraw' => 'customers#withdraw'
 
-
   end
+
 
 
   # 顧客用
