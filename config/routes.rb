@@ -2,7 +2,9 @@ Rails.application.routes.draw do
 
   namespace :admin do
     root to: 'homes#top'
+    resources :genres, only: [:new, :reate, :index, :edit, :update]
   end
+
 
   scope module: 'public' do
     root to: 'homes#top'
