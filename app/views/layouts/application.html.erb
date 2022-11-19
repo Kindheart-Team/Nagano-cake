@@ -10,6 +10,36 @@
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
+  <header>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-secondary">
+      <div class="container">
+      <h1>ロゴ</h1>
+
+      <div class="collapse navbar-collapse" id="navbarNavDropdown">
+        <ul class="navbar-nav ml-auto">
+      <% if customer_signed_in? %>
+        <div>マイページ</div>
+        <div>商品一覧</div>
+        <div>カート</div>
+        <div>ログアウト</div>
+      <% elsif admin_signed_in? %>
+        <div>商品一覧</div>
+        <div>会員一覧</div>
+        <div>注文一覧</div>
+        <div>ジャンル一覧</div>
+        <div><%= link_to "ログアウト", destroy_admin_session_path, method: :delete,class: 'nav-link text-light' %></div>
+      <% else %>
+        <div><%= link_to "about", about_path,class: 'nav-link text-light' %></div>
+        <div>商品一覧</div>
+        <div><%= link_to "新規登録", new_customer_registration_path,class: 'nav-link text-light' %></div>
+        <div><%= link_to "ログイン", new_customer_session_path,class: 'nav-link text-light' %></div>
+      <% end %>
+      </ul>
+      </div>
+      </div>
+    </nav>
+  </header>
+
   <body>
     <div class="container">
 
