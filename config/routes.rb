@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
 
+  get 'items/new'
+  get 'items/index'
+  get 'items/show'
+  get 'items/edit'
   namespace :admin do
     root to: 'homes#top'
     resources :genres, only: [:new, :create, :index, :edit, :update]
