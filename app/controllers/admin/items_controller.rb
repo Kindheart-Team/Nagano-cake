@@ -1,7 +1,7 @@
 class Admin::ItemsController < ApplicationController
   def new
     @item = Item.new
-    @genres = Genre.all.map { |genre| [ genre.name] }
+    @genres = Genre.all.map { |genre| [ genre.name, genre.id] }
 
   end
 
@@ -18,13 +18,22 @@ class Admin::ItemsController < ApplicationController
   end
 
   def show
+    @item = Item.find(params[:id])
   end
 
   def edit
+    @item = Item.find(params[:id])
+    @genres = Genre.all.map { |genre| [ genre.name, genre.id] }
+  end
+
+  def update
+    @item = Item.find(params[:id])
+    @item.update(item_params)
+    redirect_to admin_item_path(@item.id)
   end
 
   def item_params
-    params.require(:item).permit(:name, :description, :price, :is_active, :genre_id)
+    params.require(:item).permit(:name, :description, :price, :is_active, :genre_id, :image)
   end
 
 end
