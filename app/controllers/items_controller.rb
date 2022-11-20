@@ -3,6 +3,8 @@ class ItemsController < ApplicationController
   end
 
   def index
+    @items = Item.all
+    @item = Item.new
   end
 
   def show
