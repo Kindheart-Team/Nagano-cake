@@ -5,9 +5,7 @@ class CreateAddresses < ActiveRecord::Migration[6.1]
       t.string :post_code, null: false, default: ""
       t.string :address, null: false, default: ""
       t.string :name, null: false, default: ""
-
-      t.datetime :remember_created_at
-      t.datetime :remember_updated_at
+      t.integer :customer_id
 
       t.timestamps
     end
