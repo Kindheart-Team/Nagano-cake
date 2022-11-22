@@ -1,3 +1,45 @@
-<h1>Public::Homes#top</h1>
-<h2>トップページ、Bootstrap導入後にレイアウト構築</h2>
-<p>Find me in app/views/public/homes/top.html.erb</p>
+<div class = "container">
+  <div class="row">
+
+  <div class = "col-3" >
+
+    （部分テンプレート）
+
+
+
+
+</div>
+
+  <div class="col-9">
+
+
+<p>ようこそ、ながのＣＡＫＥへ！</p><br>
+<p>このサイトは、ケーキ販売のＥＣサイトになります。</p><br>
+<p>会員ではない方も商品の閲覧はできますが、</p><br>
+<p>購入には会員登録が必要になります。</p>
+
+
+
+<h1>新着商品</h1>
+
+<%= image_tag "nagano-cake1.jpg", size: "200x150" %> 商品名 ￥1000
+
+<%= image_tag "nagano-cake1.jpg", size: "200x150" %> 商品名 ￥2000
+
+<%= image_tag "nagano-cake1.jpg", size: "200x150" %> 商品名 ￥3000
+
+<%= image_tag "nagano-cake1.jpg", size: "200x150" %> 商品名 ￥4000
+
+
+<%= link_to "全ての商品を見る", admin_items_path,class: 'nav-link text-light' %>
+
+
+
+
+
+</div>
+</div>
+</div>
+
+
+

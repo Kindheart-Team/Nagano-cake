@@ -6,7 +6,6 @@
 </h1>
 
 
-<%#= form_with model: @customer, url: admin_customer_path(@customer),local:true do |f| %>
 <%= form_with model: @customer, url: admin_customer_path(@customer),method: :patch do |f| %>
 
   <div class="form-group row">
@@ -59,7 +58,6 @@
 
   <div class="form-group row">
     <%= f.label :is_deleted, "会員ステータス",class: "col-md-2" %>
-    <%#= f.text_field :is_deleted, class: 'form-control customer-is_deleted col-md-3 ml-3' %>
 
     <%= f.radio_button :is_deleted, false %>
     <%= f.label :is_deleted, "有効", class: "mr-3" %>
