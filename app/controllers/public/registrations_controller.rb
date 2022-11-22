@@ -14,7 +14,7 @@ class Public::RegistrationsController < Devise::RegistrationsController
   # POST /resource
   def create
     super
-    #ログイン後はpublic/items/indexに移動
+    items_path
   end
 
   # GET /resource/edit
