@@ -13,26 +13,81 @@
   <header>
     <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #3cb371">
       <div class="container">
-      <h1>ロゴ</h1>
+
+      <div>
+        <i class="fas fa-birthday-cake fa-4x"></i>
+      </div>
 
       <div class="collapse navbar-collapse" id="navbarNavDropdown">
         <ul class="navbar-nav ml-auto">
+
       <% if customer_signed_in? %>
-        <div>マイページ</div>
-        <div>商品一覧</div>
-        <div>カート</div>
-        <div>ログアウト</div>
+
+        <div>
+        <button type="button" class="btn btn-light btn-sm mr-3">マイページ</button>
+        </div>
+
+        <div>
+        <button type="button" class="btn btn-light btn-sm mr-3">商品一覧</button>
+        </div>
+
+
+        <div>
+        <button type="button" class="btn btn-light btn-sm mr-3">カート</button>
+        </div>
+
+
+        <div>
+        <button type="button" class="btn btn-light btn-sm ">ログアウト</button>
+        </div>
+
+
+
       <% elsif admin_signed_in? %>
-        <div><%= link_to "商品一覧", admin_items_path,class: 'nav-link text-light' %></div>
-        <div>会員一覧</div>
-        <div>注文一覧</div>
-        <div><%= link_to "ジャンル一覧", admin_genres_path,class: 'nav-link text-light' %></div>
-        <div><%= link_to "ログアウト", destroy_admin_session_path, method: :delete,class: 'nav-link text-light' %></div>
+
+        <div><%= link_to "商品一覧", admin_items_path,class: 'nav-link text-light' %>
+        <button type="button" class="btn btn-light btn-sm mr-3">商品一覧</button>
+        </div>
+
+
+        <div>
+        <button type="button" class="btn btn-light btn-sm mr-3">会員一覧</button>
+        </div>
+
+        <div>
+        <button type="button" class="btn btn-light btn-sm mr-3">注文一覧</button>
+        </div>
+
+        <div><%= link_to "ジャンル一覧", admin_genres_path,class: 'nav-link text-light' %>
+        <button type="button" class="btn btn-light btn-sm mr-3">ジャンル一覧</button>
+        </div>
+
+
+        <div><%= link_to "ログアウト", destroy_admin_session_path, method: :delete,class: 'nav-link text-light' %>
+        <button type="button" class="btn btn-light btn-sm">ログアウト</button>
+        </div>
+
+
       <% else %>
-        <div><%= link_to "about", about_path,class: 'nav-link text-light' %></div>
-        <div>商品一覧</div>
-        <div><%= link_to "新規登録", new_customer_registration_path,class: 'nav-link text-light' %></div>
-        <div><%= link_to "ログイン", new_customer_session_path,class: 'nav-link text-light' %></div>
+
+        <div><%= link_to "about", about_path,class: 'nav-link text-light' %>
+        <button type="button" class="btn btn-light btn-sm mr-3">about</button>
+        </div>
+
+
+        <div><%= link_to "商品一覧", new_customer_registration_path,class: 'nav-link text-light' %>
+        <button type="button" class="btn btn-light btn-sm mr-3">商品一覧</button>
+        </div>
+
+
+        <div><%= link_to "新規登録", new_customer_registration_path,class: 'nav-link text-light' %>
+        <button type="button" class="btn btn-light btn-sm mr-3">新規登録</button>
+        </div>
+
+        <div><%= link_to "ログイン", new_customer_session_path,class: 'nav-link text-light' %>
+        <button type="button" class="btn btn-light btn-sm">ログイン</button>
+        </div>
+
       <% end %>
       </ul>
       </div>
