@@ -1,1 +1,20 @@
-<h1>customer/show</h1>
+<h1>マイページ</h1>
+
+<h3>登録情報</h3>
+
+<th><%= link_to "編集する", edit_admin_customer_path(@customer.id), class: "btn btn-success" %></th><br>
+
+<tr>
+    <th>氏名</th>
+    <th>
+    <%= @customer.last_name %>
+    <%= @customer.first_name %>
+  </th>
+</tr><br>
+<tr>
+  <th>フリガナ</th>
+  <th>
+    <%= @customer.last_name_kana %>
+    <%= @customer.first_name_kana %>
+  </th>
+</tr><br>

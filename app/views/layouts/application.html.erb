@@ -24,7 +24,7 @@
         <div><%= link_to "ログアウト", destroy_customer_session_path, method: :delete,class: 'nav-link text-light' %></div>
       <% elsif admin_signed_in? %>
         <div><%= link_to "商品一覧", admin_items_path,class: 'nav-link text-light' %></div>
-        <div>会員一覧</div>
+        <div><%= link_to "会員一覧", admin_customers_path,class: 'nav-link text-light' %></div>
         <div>注文一覧</div>
         <div><%= link_to "ジャンル一覧", admin_genres_path,class: 'nav-link text-light' %></div>
         <div><%= link_to "ログアウト", destroy_admin_session_path, method: :delete,class: 'nav-link text-light' %></div>
