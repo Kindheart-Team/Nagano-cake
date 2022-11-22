@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_11_20_110726) do
+ActiveRecord::Schema.define(version: 2022_11_22_035403) do
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -44,8 +44,7 @@ ActiveRecord::Schema.define(version: 2022_11_20_110726) do
     t.string "post_code", default: "", null: false
     t.string "address", default: "", null: false
     t.string "name", default: "", null: false
-    t.datetime "remember_created_at"
-    t.datetime "remember_updated_at"
+    t.integer "customer_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -61,6 +60,14 @@ ActiveRecord::Schema.define(version: 2022_11_20_110726) do
     t.datetime "updated_at", precision: 6, null: false
     t.index ["email"], name: "index_admins_on_email", unique: true
     t.index ["reset_password_token"], name: "index_admins_on_reset_password_token", unique: true
+  end
+
+  create_table "cart_items", force: :cascade do |t|
+    t.integer "item_id"
+    t.integer "customer_id"
+    t.integer "amount"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "customers", force: :cascade do |t|
