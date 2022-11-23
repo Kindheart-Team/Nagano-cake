@@ -1,44 +1,47 @@
 <div class = "container">
   <div class="row">
 
-  <div class = "col-3" >
+    <div class = "col-3" >
 
     （部分テンプレート）
 
 
 
 
-</div>
+    </div>
 
-  <div class="col-9">
-
-
-<p>ようこそ、ながのＣＡＫＥへ！</p><br>
-<p>このサイトは、ケーキ販売のＥＣサイトになります。</p><br>
-<p>会員ではない方も商品の閲覧はできますが、</p><br>
-<p>購入には会員登録が必要になります。</p>
+    <div class="col-9">
 
 
-
-<h1>新着商品</h1>
-
-<%= image_tag "nagano-cake1.jpg", size: "200x150" %> 商品名 ￥1000
-
-<%= image_tag "nagano-cake1.jpg", size: "200x150" %> 商品名 ￥2000
-
-<%= image_tag "nagano-cake1.jpg", size: "200x150" %> 商品名 ￥3000
-
-<%= image_tag "nagano-cake1.jpg", size: "200x150" %> 商品名 ￥4000
-
-
-<%= link_to "全ての商品を見る", admin_items_path,class: 'nav-link text-light' %>
+      <p>ようこそ、ながのＣＡＫＥへ！</p><br>
+      <p>このサイトは、ケーキ販売のＥＣサイトになります。</p><br>
+      <p>会員ではない方も商品の閲覧はできますが、</p><br>
+      <p>購入には会員登録が必要になります。</p>
 
 
 
+      <h1>新着商品</h1>
 
 
-</div>
-</div>
+
+        <div class = 'row'>
+          <% @items.each do |item| %>
+            <div class = 'col-3'>
+              <%= image_tag item.get_image(100,100) %><br>
+              <%= link_to item_path(item.id) do %>
+                <%= item.name %><br>
+              <% end %>
+              ¥<%= item.price %>
+            </div>
+          <% end %>
+        </div>
+        <%= link_to "全ての商品を見る>", items_path,class: 'nav-link text-right' %>
+
+
+
+
+    </div>
+  </div>
 </div>
 
 
