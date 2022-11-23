@@ -11,7 +11,7 @@ class Public::SessionsController < Devise::SessionsController
   # POST /resource/sign_in
   def create
     super
-    #ログイン後はpublic/items/indexに移動
+    items_path
   end
 
   # DELETE /resource/sign_out

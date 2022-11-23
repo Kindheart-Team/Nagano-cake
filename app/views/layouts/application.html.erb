@@ -23,6 +23,7 @@
 
       <% if customer_signed_in? %>
 
+
         <div>
         <button type="button" class="btn btn-light btn-sm mr-3">マイページ</button>
         </div>
@@ -66,6 +67,7 @@
         <div><%= link_to "ログアウト", destroy_admin_session_path, method: :delete,class: 'nav-link text-light' %>
         <button type="button" class="btn btn-light btn-sm">ログアウト</button>
         </div>
+
 
 
       <% else %>
