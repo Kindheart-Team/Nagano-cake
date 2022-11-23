@@ -1,1 +1,34 @@
-<h1>public/items/indexページ</h1>
+<div class = "container">
+  <div class="row">
+
+    <div class = "col-3" >
+
+    （部分テンプレート）
+
+
+
+
+    </div>
+
+    <div class="col-9">
+      <h2>商品一覧
+        (全<%= @items.count %>件）
+      </h2>
+      <div class = 'row'>
+      <% @items.each do |item| %>
+        <div class = 'col-4'>
+        <%= image_tag item.get_image(100,100) %><br>
+          <%= link_to item_path(item.id) do %>
+          <%= item.name %><br>
+          <% end %>
+          ¥<%= item.price %>
+        </div>
+
+      <% end %>
+      </div>
+
+
+
+    </div>
+  </div>
+</div>
