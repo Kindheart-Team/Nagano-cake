@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+
 <html>
   <head>
     <title>NaganoCake</title>
@@ -9,6 +10,8 @@
     <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
+
+<body>
 
   <header>
     <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #3cb371">
@@ -22,6 +25,10 @@
         <ul class="navbar-nav ml-auto">
 
       <% if customer_signed_in? %>
+<<<<<<< HEAD
+
+=======
+>>>>>>> origin/develop
 
         <div><%= link_to my_page_path,class: 'nav-link text-light' do %>
         <button type="button" class="btn btn-light btn-sm mr-3">マイページ</button>
@@ -75,6 +82,7 @@
         </div>
 
 
+
       <% else %>
 
       <div> <%= link_to about_path,class: 'nav-link text-light' do  %>
@@ -109,10 +117,10 @@
     </nav>
   </header>
 
-  <body>
+
     <div class="container">
 
     <%= yield %>
-
+  </div>
   </body>
 </html>

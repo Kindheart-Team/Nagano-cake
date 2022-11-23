@@ -12,7 +12,7 @@ class Public::AddressesController < ApplicationController
   end
 
   def create
-    @address = Address.new
+    @address = Address.new(address_params)
     if @address.save
       redirect_to addresses_path
     else
@@ -22,7 +22,7 @@ class Public::AddressesController < ApplicationController
 
   def update
     @address = Address.find(params[:id])
-    if @address.update
+    if @address.update(address_params)
       redirect_to addresses_path
     else
       render :edit
