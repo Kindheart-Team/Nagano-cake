@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+
 <html>
   <head>
     <title>NaganoCake</title>
@@ -9,6 +10,8 @@
     <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
+
+<body>
 
   <header>
     <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #3cb371">
@@ -97,10 +100,10 @@
     </nav>
   </header>
 
-  <body>
+
     <div class="container">
 
     <%= yield %>
-
+  </div>
   </body>
 </html>
