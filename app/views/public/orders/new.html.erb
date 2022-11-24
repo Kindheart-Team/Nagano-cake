@@ -7,7 +7,7 @@
     </div>
     <div class="row">
         <div class="col">
-          <%= form_with model: @order, url: "/orders/confirm", method: :post, local: true do |f| %>
+          <%= form_with model: @order, url: "/orders/check", method: :post, local: true do |f| %>
 
             <h5 class="font-weight-bold">支払方法</h5>
             <p>
@@ -37,16 +37,16 @@
 
           <table>
             <tr>
-              <td class='col-3'><%= f.label :shipping_post_code, "郵便番号(ハイフンなし)" %></td>
-              <td class='col-9'><%= f.text_field :shipping_post_code　%></td>
+              <td class='col-3'><%= f.label :post_code, "郵便番号(ハイフンなし)" %></td>
+              <td class='col-9'><%= f.text_field :post_code　%></td>
             </tr>
             <tr>
-              <td class='col-3'><%= f.label :shipping_address, "住所" %></td>
-              <td class='col-9'><%= f.text_field :shipping_address, class: "w-100" %></td>
+              <td class='col-3'><%= f.label :address, "住所" %></td>
+              <td class='col-9'><%= f.text_field :address, class: "w-100" %></td>
             </tr>
             <tr>
-              <td class='col-3'><%= f.label :shipping_name, "宛名" %></td>
-              <td class='col-9'><%= f.text_field :shipping_name %></td>
+              <td class='col-3'><%= f.label :name, "宛名" %></td>
+              <td class='col-9'><%= f.text_field :name %></td>
             </tr>
           </table>
 
