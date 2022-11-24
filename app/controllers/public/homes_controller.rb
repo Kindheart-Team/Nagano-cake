@@ -7,7 +7,7 @@ class Public::HomesController < ApplicationController
   def about
   end
 
-  private
+   private
 
   def item_params
     params.require(:item).permit(:name, :description, :price, :is_active, :genre_id, :image)
