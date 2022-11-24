@@ -22,7 +22,7 @@ class Public::SessionsController < Devise::SessionsController
 
   protected
   # 退会しているかを判断するメソッド
-  def customer_state
+  def configure_sign_in_params
     ## 【処理内容1】 入力されたemailからアカウントを1件取得
     @customer = Customer.find_by(email: params[:customer][:email])
     ## アカウントを取得できなかった場合、このメソッドを終了する
@@ -32,7 +32,7 @@ class Public::SessionsController < Devise::SessionsController
     ## 【処理内容3】
       redirect_to new_customer_registration_path
     else
-      render :create
+
     end
   end
 
