@@ -1,4 +1,4 @@
-<div class = "container mt-3">
+<div class = "container">
 
   <h1>注文履歴詳細</h1>
 
@@ -20,17 +20,15 @@
 
 
   <tbody>
-    <% @orders.each do |order| %>
     <tr>
-      <td><%= order.created_at %></td>
+      <td><%= @order.created_at %></td>
 
-      <td><%= order.address %></td>
+      <td><%= @order.address %></td>
 
-      <td><%= order.payment_method %></td>
+      <td><%= @order.payment_method %></td>
 
-      <td><%= order.status %></td>
+      <td><%= @order.status %></td>
     </tr>
-  <% end %>
   </tbody>
   </table>
 
@@ -51,15 +49,13 @@
 
 
   <tbody>
-  <% @orders.each do |order| %>
-<tr>
-  <td><%= order.price %></td>
+    <tr>
 
-  <td><%= order.shipping_cost %></td>
+      <% @order.shipping_cost = 800 %>
+      <td><%= @order.shipping_cost %></td>
 
-  <td><%= order.total_payment %></td>
-  </tr>
-  <% end %>
+      <td><%= @order.total_payment %></td>
+    </tr>
   </tbody>
 </table>
 
@@ -86,17 +82,17 @@
 
 <tbody>
 
-<% @orders.each do |order| %>
+<% @ordered_items.each do |ordered_item| %>
 
     <tr>
+      <td><%= ordered_item.item_id %></td>
 
-      <td><%= order.item %></td>
+      <td><%= ordered_item.price %></td>
 
-      <td><%= order.price %></td>
+      <td><%= ordered_item.amount %></td>
 
-      <td><%= order.amount %></td>
-
-      <td><%= order.price %></td>
+      <% subtotal = (ordered_item.price*ordered_item.amount).to_i %>
+      <td><%= subtotal %></td>
 
    </tr>
 
