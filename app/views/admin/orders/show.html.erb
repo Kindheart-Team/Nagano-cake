@@ -30,7 +30,10 @@
     <tr>
         <th>注文ステータス</th>
         <td>
-          <%= select :sataus, :name, Order.statuses.keys.to_a %>
+          <%= form_with model: @order, url: admin_order_path, method: :put do |f| %>
+            <%= select :sataus, :name, Order.statuses_i18n.invert.keys.to_a %>
+            <%= f.submit "更新" %>
+          <% end %>
         </td>
     </tr>
 </table>
@@ -50,13 +53,31 @@
                 <td><%= ordered_item.item_id %></td>
                 <td><%= ordered_item.price %></td>
                 <td><%= ordered_item.amount %></td>
-                <% subtotal = (ordered_item.price*ordered_item.amount).to_i %>
-                <td><%= subtotal %></td>
+                <td><%= (ordered_item.price).floor * ordered_item.amount %></td>
+                <% @total += (ordered_item.price).floor * ordered_item.amount %>
                 <td>
-                    <%= select :making_status, :name, OrderItem.making_status.keys.to_a %>
+                    <%= select :making_status, :name, OrderedItem.making_statuses.keys.to_a %>
                 </td>
             <% end %>
             </tbody>
+        </table>
+    </div>
+    <div class = "col-3">
+        <table class="table">
+          <tr>
+            <th>商品合計</th>
+            <td><%= @total %>円</td>
+          </tr>
+          <tr>
+            <th>送料</th>
+            <% @order.shipping_cost = 800 %>
+          <td><%= @order.shipping_cost %>円</td>
+          </tr>
+          <tr>
+            <th>請求金額合計</th>
+            <% @order.total_payment = @order.shipping_cost + @total %>
+          <td><%= @order.total_payment %>円</td>
+          </tr>
         </table>
     </div>
 </div>

@@ -6,6 +6,7 @@ class Admin::OrdersController < ApplicationController
   def show
     @order = Order.find(params[:id])
     @ordered_items = @order.ordered_items
+    @total = 0
 
   end
 
