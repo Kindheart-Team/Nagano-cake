@@ -1,4 +1,5 @@
 
+
 <h1>注文履歴詳細</h1>
 
 
@@ -22,7 +23,7 @@
         </td>
 
         <th>支払方法</th>
-        <td><%= @order.payment_method %></td>
+
 
         <th>注文ステータス</th>
         <%= select :sataus, :name, Order.statuses.keys.to_a %>
@@ -42,18 +43,26 @@
        <th></th>
      </tr>
    </thead>
-    <% @ordered_items.each do |ordered_item| %>
-    <tr>
-      <
-    </tr>
+    <% @ordered_items.each do |ordered_item| %
+
+
 
     </tbody>
 </table>
+</div>
 
 
 
+<div class = "col-md-4"></div>
+<h3>合計金額 <%= order.price %> 円</h3>
+<h3>送料 <%= order.shipping_cost %> 円</h3>
+<h3>請求金額 <%= order.total_payment %> 円</h3>
 
 
+
+</div>
+</div>
+</div>
 
 
 
