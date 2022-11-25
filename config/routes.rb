@@ -31,9 +31,10 @@ Rails.application.routes.draw do
 
 
 
+    get 'orders/complete' => 'orders#complete', as: 'complete'
     resources :orders, only: [:new, :create, :index, :show]
     post 'orders/check' => 'orders#check', as: 'check'
-    get 'orders/complete' => 'orders#complete', as: 'complete'
+
   end
 
 

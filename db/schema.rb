@@ -44,8 +44,7 @@ ActiveRecord::Schema.define(version: 2022_11_23_095833) do
     t.string "post_code", default: "", null: false
     t.string "address", default: "", null: false
     t.string "name", default: "", null: false
-    t.datetime "remember_created_at"
-    t.datetime "remember_updated_at"
+    t.integer "customer_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -78,13 +77,13 @@ ActiveRecord::Schema.define(version: 2022_11_23_095833) do
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
     t.datetime "remember_updated_at"
-    t.string "last_name", default: "", null: false
-    t.string "first_name", default: "", null: false
-    t.string "last_name_kana", default: "", null: false
-    t.string "first_name_kana", default: "", null: false
-    t.string "post_code", default: "", null: false
-    t.string "address", default: "", null: false
-    t.string "phone", default: "", null: false
+    t.string "last_name", null: false
+    t.string "first_name", null: false
+    t.string "last_name_kana", null: false
+    t.string "first_name_kana", null: false
+    t.string "post_code", null: false
+    t.string "address", null: false
+    t.string "phone", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.boolean "is_deleted", default: false

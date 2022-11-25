@@ -11,10 +11,10 @@
 
             <h5 class="font-weight-bold">支払方法</h5>
             <p>
-            <%= f.radio_button :payment_method,:クレジットカード,checked: "checked" %>
+            <%= f.radio_button :payment_method, :credit_card,checked: "checked" %>
             <%= f.label :payment_method, "クレジットカード" %>
             <br>
-            <%= f.radio_button :payment_method, :銀行振込 %>
+            <%= f.radio_button :payment_method, :transfer %>
             <%= f.label :payment_method, "銀行振込" %>
             </p>
 
@@ -38,7 +38,7 @@
           <table>
             <tr>
               <td class='col-3'><%= f.label :post_code, "郵便番号(ハイフンなし)" %></td>
-              <td class='col-9'><%= f.text_field :post_code　%></td>
+              <td class='col-9'><%= f.text_field :post_code %></td>
             </tr>
             <tr>
               <td class='col-3'><%= f.label :address, "住所" %></td>
