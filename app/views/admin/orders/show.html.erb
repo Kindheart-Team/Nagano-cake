@@ -1,106 +1,52 @@
-<div class = "container mt-3" >
 
 
 <h1>注文履歴詳細</h1>
+
+
 
 <table class="table">
     <thead>
       <tr>
         <th>購入者</th>
+        <td>
+          <%= @order.customer.last_name %>
+          <%= @order.customer.first_name %>
+        </td>
 
         <th>注文日</th>
+        <td><%= @order.created_at %></td>
 
         <th>配送先</th>
+        <td>
+          <%= @order.address %>
+          <%= @order.name %>
+        </td>
 
         <th>支払方法</th>
 
+
         <th>注文ステータス</th>
+        <%= select :sataus, :name, Order.statuses.keys.to_a %>
+        <%= select :status, :name, Order.statuses.values.to_a %>
       </tr>
     </thead>
 
 
 <tbody>
-<% @orders.each do |order| %>
-    <tr>
-      <td><%= order.customer %></td>
-
-      <td><%= order.created_at %></td>
-
-      <td><%= order.address %></td>
-
-      <td><%= order.payment_method %></td>
-
-      <td>
-  <%= form_with model: @order, url: admin_order_path(@order),method: :patch do |f| %>
- <form>
-<div class="form-group">
-    <label>注文ステータス</label>
-  <select class="form-control">
-    <option>入金待ち</option>
-    <option>入金確認</option>
-    <option>制作中</option>
-    <option>発送準備中</option>
-    <option>発送済み</option>
-  </select>
-</div>
-</form>
-      </td>
-
-<% end %>
-    </tbody>
-</table>
-</div>
+  <table class="table table-bordered">
+   <thead>
+     <tr>
+       <th>商品名</th>
+       <th>単価（税込）</th>
+       <th>数量</th>
+       <th>小計</th>
+       <th></th>
+     </tr>
+   </thead>
+    <% @ordered_items.each do |ordered_item| %
 
 
-<div class = "container mt-8" >
-  <div class = "row">
-<div class= "col-md-3">
-<table class="table table-bordered">
-    <thead>
-      <tr>
-        <th>商品名</th>
-        <th>単価(税込)</th>
-        <th>数量</th>
-        <th>小計</th>
-        <th>製作ステータス</th>
-        <th></th>
-      </tr>
-    </thead>
 
-<tbody>
-<% @orders.each do |order| %>
-
-    <tr>
-
-      <td><%= order.name %></td>
-
-      <td><%= order.price %></td>
-
-      <td><%= order.amount %></td>
-
-      <td><%= order.total_payment %></td>
-
-      <td>
-        <%= form_with model: @order, url: admin_order_path(@order),method: :patch do |f| %>
- <form>
-<div class="form-group">
-    <label>製作ステータス</label>
-  <select class="form-control">
-    <option>着手不可</option>
-    <option>製作待ち</option>
-    <option>制作中</option>
-    <option>製作完了</option>
-  </select>
-</div>
-</form>
-<%= f.submit "更新", class: "btn btn-secondary" %>
-
-      </td>
-
-      <td><%= f.submit "更新", class: "btn btn-secondary" %></td>
-
-   </tr>
-<% end %>
     </tbody>
 </table>
 </div>
