@@ -13,10 +13,13 @@ class Public::AddressesController < ApplicationController
 
   def create
     @address = Address.new(address_params)
-    if @address.save
+    @address.customer_id = current_customer.id
+    @addresses = Address.all
+    @customer = current_customer
+    if @address.save!
       redirect_to addresses_path
     else
-      render :edit
+      render :index
     end
   end
 
