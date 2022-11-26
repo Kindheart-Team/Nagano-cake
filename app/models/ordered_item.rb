@@ -3,6 +3,7 @@ class OrderedItem < ApplicationRecord
   enum making_status: { wait: 0, waiting: 1, making: 2, completed: 3 }
 
   belongs_to :item
+  belongs_to :order
 
   def get_image(width, height)
   unless image.attached?
