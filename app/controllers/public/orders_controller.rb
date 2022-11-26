@@ -58,6 +58,11 @@ class Public::OrdersController < ApplicationController
   def show
     @order = Order.find(params[:id])
     @ordered_items = @order.ordered_items
+    @total = 0
+    @ordered_items.each do |ordered_item|
+      subtotal = (ordered_item.price*ordered_item.amount).to_i
+      @total = @total + subtotal
+    end
   end
 
 
