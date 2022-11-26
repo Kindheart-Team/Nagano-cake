@@ -48,13 +48,16 @@
             </thead>
             <% @ordered_items.each do |ordered_item| %>
               <tbody>
-                <td><%= ordered_item.item_id %></td>
+                <td><%= ordered_item.item.name %></td>
                 <td><%= ordered_item.price %></td>
                 <td><%= ordered_item.amount %></td>
                 <td><%= (ordered_item.price).floor * ordered_item.amount %></td>
                 <% @total += (ordered_item.price).floor * ordered_item.amount %>
                 <td>
-                    <%= select :making_status, :name, OrderedItem.making_statuses.keys.to_a %>
+                  <%= form_with model: ordered_item, url: admin_ordered_item_path(ordered_item.id), method: :patch do |f| %>
+                    <%= f.select :making_status, OrderedItem.making_statuses.keys.map{|k| [I18n.t("enums.ordered_item.making_status.#{k}"), k]} %>
+                    <%= f.submit "更新" %>
+                  <% end %>
                 </td>
             <% end %>
             </tbody>
