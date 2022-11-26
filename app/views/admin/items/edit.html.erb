@@ -1,25 +1,61 @@
+<div class = "container ml-auto">
 
 <h1>商品編集</h1>
 
-
-
-
 <%= form_with model: @item, url: admin_item_path,method: :patch do |f| %>
-<h4>商品画像</h4>
-  <%= f.file_field :image, accept: "image/*" %>
-<h4>商品名</h4>
-  <%= f.text_field :name %>
-<h4>商品説明</h4>
-  <%= f.text_area :description %>
-<h4>ジャンル</h4>
-　<%= f.select :genre_id, @genres, {prompt: "選択してください"}, :class => 'form-control', :id => 'genre_id' %>
-<h4>税抜価格</h4>
-  <%= f.text_field :price %>円
-<h4>販売ステータス</h4>
+
+  <div class="form-group row">
+    <div class="col-md-2"></div>
+    <%= f.label "商品画像",class: "col-md-3" %>
+    <%= f.file_field :image, accept: "image/*", class: 'item-image col-md-4' %>
+
+  </div>
+
+
+  <div class="form-group row">
+    <div class="col-md-2"></div>
+    <%= f.label "商品名",class: "col-md-3" %>
+    <%= f.text_field :name, class: 'form-control item_name col-md-3 ml-3' %>
+  </div>
+
+
+  <div class="form-group row">
+    <div class="col-md-2"></div>
+    <%= f.label "商品説明",class: "col-md-3" %>
+    <%= f.text_area :description, class: 'form-control item-description col-md-3 ml-3' %>
+  </div>
+
+
+<div class="form-group row">
+  <div class="col-md-2"></div>
+    <%= f.label "ジャンル",class: "col-md-3" %>
+    <%= f.select :genre_id, @genres, {prompt: "選択してください"}, :class => 'form-control col-md-3 ml-3', :id => 'genre_id' %>
+  </div>
+
+
+  <div class="form-group row">
+    <div class="col-md-2"></div>
+    <%= f.label "税抜価格",class: "col-md-3" %>
+    <%= f.text_field :price, class: 'form-control item-price col-md-3 ml-3' %>
+  </div>
+
+
+<div class="form-group row">
+  <div class="col-md-2"></div>
+  <%= f.label "販売ステータス",class: "col-md-3 mr-3" %>
   <%= f.radio_button :is_active, true %>
-  <%= f.label :is_active_true, "販売中" %>
+  <%= f.label :is_active_true, "販売中" ,class: "mr-3" %>
   <%= f.radio_button :is_active, false %>
   <%= f.label :is_active_false, "販売停止中" %>
+  <%# class: 'form-control item-status col-md-3 ml-3' %>
+</div>
 
+
+<div class = "row">
+<div class="col-md-5"></div>
 <%= f.submit '変更を保存', class: "btn btn-success" %>
+</div>
 <% end %>
+
+</div>
+
