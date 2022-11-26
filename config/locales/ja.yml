@@ -12,8 +12,6 @@ ja:
         preparation: "発送準備中"
         shipped: "発送済み"
 
-ja:
-  enums:
     ordered_item:
       making_status:
         wait: "着手不可"
