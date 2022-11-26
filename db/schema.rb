@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_11_23_095833) do
+ActiveRecord::Schema.define(version: 2022_11_26_080634) do
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -77,13 +77,13 @@ ActiveRecord::Schema.define(version: 2022_11_23_095833) do
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
     t.datetime "remember_updated_at"
-    t.string "last_name", null: false
-    t.string "first_name", null: false
-    t.string "last_name_kana", null: false
-    t.string "first_name_kana", null: false
-    t.string "post_code", null: false
-    t.string "address", null: false
-    t.string "phone", null: false
+    t.string "last_name", default: "", null: false
+    t.string "first_name", default: "", null: false
+    t.string "last_name_kana", default: "", null: false
+    t.string "first_name_kana", default: "", null: false
+    t.string "post_code", default: "", null: false
+    t.string "address", default: "", null: false
+    t.string "phone", default: "", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.boolean "is_deleted", default: false
@@ -135,7 +135,7 @@ ActiveRecord::Schema.define(version: 2022_11_23_095833) do
     t.integer "shipping_cost"
     t.integer "total_payment"
     t.integer "payment_method"
-    t.integer "status"
+    t.integer "status", default: 0
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
