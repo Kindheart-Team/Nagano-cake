@@ -41,3 +41,8 @@
     <th>配送先</th>
     <%= link_to "一覧を見る", addresses_path(@customer.id), class: "btn btn-primary" %>
   </tr>
+  <br />
+  <tr>
+    <th class="field mt-2">注文履歴</th>
+    <%= link_to "一覧を見る", orders_path(@customer.id), class: "btn btn-primary" %>
+  </tr>

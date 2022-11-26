@@ -50,10 +50,13 @@
 
   <tbody>
     <tr>
+      <%# total = 0 %>
+      <td><%= @total.to_i %></td>
 
       <% @order.shipping_cost = 800 %>
       <td><%= @order.shipping_cost %></td>
 
+      <% @order.total_payment = @order.shipping_cost + @total.to_i %>
       <td><%= @order.total_payment %></td>
     </tr>
   </tbody>
