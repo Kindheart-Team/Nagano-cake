@@ -1,9 +1,9 @@
 class Admin::OrderedItemsController < ApplicationController
 
   def update
-    @order = Order.find(params[:id])
     @ordered_item = OrderedItem.find(params[:id])
-    @ordered_items = @order.ordered_items.all
+    @order = @ordered_item.order
+    @ordered_items = @order.ordered_items
 
     is_updated = true
     if @ordered_item.update(ordered_item_params)
