@@ -3,7 +3,24 @@
 
     <div class = "col-3" >
 
-    （部分テンプレート）
+    <table class="table">
+  <thead class="thead-dark">
+    <tr>
+      <th scope="col">ジャンル</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @genres.each do |genre| %>
+    <tr>
+      <th>
+      <%= genre.name %>
+      </th>
+    </tr>
+    <% end %>
+  </tbody>
+  </table>
+ </div>
 
 
 
