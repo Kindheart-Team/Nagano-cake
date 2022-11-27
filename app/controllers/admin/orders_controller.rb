@@ -12,9 +12,9 @@ class Admin::OrdersController < ApplicationController
 
   def update
     @order = Order.find(params[:id])
-    @ordered_items = OrderedItem.where(order_id: params[:id])
     if @order.update(order_params)
-      @ordered_items.update_all(making_status: 1) if @order.status == "confirm"
+      @ordered_items = @order.ordered_items
+      @ordered_items.update_all(making_status: 1) if @order.status == "confilm"
     end
     redirect_to admin_order_path(@order.id)
   end
