@@ -1,7 +1,7 @@
 <h1>配送先編集</h1>
 
 
-<%= form_with model: @address, url: address_path(current_customer.address),method: :patch do |f| %>
+<%= form_with model: @address, url: address_path(@address.id),method: :patch do |f| %>
 
 
   <div class="form-group row">
