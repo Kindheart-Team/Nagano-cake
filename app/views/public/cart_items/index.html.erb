@@ -19,7 +19,14 @@
          <td><%= image_tag cart_item.item.get_image(100,100) %></td>
          <td><%= cart_item.item.name %></td>
          <td><%= (cart_item.item.add_tax_price ).floor %></td>
-         <td><%= cart_item.amount %></td>
+         <td>
+          <%= cart_item.amount %>
+           <%= form_with model: cart_item, url: cart_item_path(cart_item.id), method: :patch do |f| %>
+           <%= f.select :amount, *[1..10] %>
+           <%#= f.hidden_field :item_id, :value => @item.id %>
+           <%= f.submit "変更", class: "btn btn-sm btn-success" %>
+           <% end %>
+         </td>
          <td><%= cart_item.subtotal%></td>
          <td><%= link_to "削除", cart_item_path(cart_item.id), method: :delete, "data-confirm" => "本当に削除しますか？", class: "btn btn-danger mb-2" %></td>
          <% @total = @total + cart_item.subtotal %>
