@@ -3,13 +3,14 @@ class Admin::ItemsController < ApplicationController
     @item = Item.new
     @genres = Genre.all.map { |genre| [ genre.name, genre.id] }
 
+
   end
 
   def create
     @genres = Genre.all
     @item = Item.new(item_params)
     @item.save
-    redirect_to admin_items_path
+    redirect_to admin_item_path(@item.id)
   end
 
   def index
