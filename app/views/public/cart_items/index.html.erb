@@ -1,6 +1,6 @@
 <h1>ショッピングカート</h1>
 
-<%= button_to "全て削除", destroy_all_path, method: :delete, "data-confirm" => "本当に削除しますか？" %>
+<%= link_to "全て削除", destroy_all_path, method: :delete, "data-confirm" => "本当に削除しますか？", class: "btn btn-danger mb-2" %>
 
  <table class="table table-bordered">
    <thead>
@@ -19,7 +19,7 @@
          <td><%= (cart_item.item.add_tax_price ).floor %></td>
          <td><%= cart_item.amount %></td>
          <td><%= cart_item.subtotal%></td>
-         <td><%= link_to "削除", cart_item_path(cart_item.id), method: :delete, "data-confirm" => "本当に削除しますか？" %></td>
+         <td><%= link_to "削除", cart_item_path(cart_item.id), method: :delete, "data-confirm" => "本当に削除しますか？", class: "btn btn-danger mb-2" %></td>
          <% @total = @total + cart_item.subtotal %>
        </tr>
      <% end %>
