@@ -24,7 +24,7 @@
       </div>
 
       <div class="collapse navbar-collapse" id="navbarNavDropdown">
-        <ul class="navbar-nav ml-auto">
+      <ul class="navbar-nav ml-auto">
 
       <% if customer_signed_in? %>
       <div class="mr-5 mt-3">
@@ -120,6 +120,10 @@
       </ul>
       </div>
       </div>
+        <div class="mr-1">
+          <%= text_field_tag :search %>
+          <%= submit_tag 'Search', :name => nil %>
+        </div>
     </nav>
   </header>
 
