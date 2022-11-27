@@ -20,10 +20,8 @@
          <td><%= cart_item.item.name %></td>
          <td><%= (cart_item.item.add_tax_price ).floor %></td>
          <td>
-          <%= cart_item.amount %>
            <%= form_with model: cart_item, url: cart_item_path(cart_item.id), method: :patch do |f| %>
            <%= f.select :amount, *[1..10] %>
-           <%#= f.hidden_field :item_id, :value => @item.id %>
            <%= f.submit "変更", class: "btn btn-sm btn-success" %>
            <% end %>
          </td>
