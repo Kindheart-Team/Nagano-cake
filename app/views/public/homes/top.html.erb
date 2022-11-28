@@ -25,10 +25,10 @@
     <div class="col-9">
 
 
-      <p>ようこそ、ながのＣＡＫＥへ！</p><br>
-      <p>このサイトは、ケーキ販売のＥＣサイトになります。</p><br>
-      <p>会員ではない方も商品の閲覧はできますが、</p><br>
-      <p>購入には会員登録が必要になります。</p>
+      <p class="font-weight-bold">ようこそ、ながのＣＡＫＥへ！</p><br>
+      <p class="font-weight-bold">このサイトは、ケーキ販売のＥＣサイトになります。</p><br>
+      <p class="font-weight-bold">会員ではない方も商品の閲覧はできますが、</p><br>
+      <p class="font-weight-bold">購入には会員登録が必要になります。</p><br />
 
 
 
@@ -36,7 +36,7 @@
 
 
 
-        <div class = 'row'>
+        <div class = 'row mt-4'>
           <% @items.each do |item| %>
             <div class = 'col-3'>
               <td><%= link_to item_path(item.id) do %>
